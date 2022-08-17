@@ -24,11 +24,11 @@ public class TareaComputadoraComposicion {
         // TODO code application logic here
         
         Computadora compu = new Computadora("Apple", "MacBook",
-                new Bocina("Sony", "SRS-XB13/BC LA", 20000),
                 new Monitor("Toshiba", "4820-5LG", 32),
-                new Mouse("MOFII", "Amarillo", "Inálambrico"), 
+                new Teclado("Dell", "Negro", 104),
+                new Mouse("MOFII", "Amarillo", "Inálambrico"),
                 new TarjetaGrafica("NVIDIA", 1050, "4 GB", "1250MHz"),
-                new Teclado("Dell", "Negro", 104));
+                new Bocina("Sony", "SRS-XB13/BC LA", 20000));
         
         System.out.println(compu);
         

@@ -18,31 +18,23 @@ public class Computadora {
     
     private String marca;
     private String modelo;
-    private Bocina bocina;
     private Monitor pantalla;
+    private Teclado teclado;
     private Mouse raton;
     private TarjetaGrafica tarjetaGrafica;
-    private Teclado teclado;
+    private Bocina bocina;
 
     public Computadora() {
     }
 
-    public Computadora(String marca, String modelo, Bocina bocina, Monitor pantalla, Mouse raton, TarjetaGrafica tarjetaGrafica, Teclado teclado) {
+    public Computadora(String marca, String modelo, Monitor pantalla, Teclado teclado, Mouse raton, TarjetaGrafica tarjetaGrafica, Bocina bocina) {
         this.marca = marca;
         this.modelo = modelo;
-        this.bocina = bocina;
         this.pantalla = pantalla;
+        this.teclado = teclado;
         this.raton = raton;
         this.tarjetaGrafica = tarjetaGrafica;
-        this.teclado = teclado;
-    }
-
-    public Teclado getTeclado() {
-        return teclado;
-    }
-
-    public void setTeclado(Teclado teclado) {
-        this.teclado = teclado;
+        this.bocina = bocina;
     }
 
     public String getMarca() {
@@ -61,20 +53,20 @@ public class Computadora {
         this.modelo = modelo;
     }
 
-    public Bocina getBocina() {
-        return bocina;
-    }
-
-    public void setBocina(Bocina bocina) {
-        this.bocina = bocina;
-    }
-
     public Monitor getPantalla() {
         return pantalla;
     }
 
     public void setPantalla(Monitor pantalla) {
         this.pantalla = pantalla;
+    }
+
+    public Teclado getTeclado() {
+        return teclado;
+    }
+
+    public void setTeclado(Teclado teclado) {
+        this.teclado = teclado;
     }
 
     public Mouse getRaton() {
@@ -93,11 +85,19 @@ public class Computadora {
         this.tarjetaGrafica = tarjetaGrafica;
     }
 
-    @Override
+    public Bocina getBocina() {
+        return bocina;
+    }
+
+    public void setBocina(Bocina bocina) {
+        this.bocina = bocina;
+    }
+    
+
+   @Override
     public String toString() {
         return "Computadora{" + "Marca = " + marca + ", Modelo = " + modelo + ", Bocina = " + bocina + ", Pantalla = " + pantalla + ", Raton = " + raton + ", Tarjeta Gráfica = " + tarjetaGrafica + ", Teclado = " + teclado + '}';
     }
-    
     
 }
 
