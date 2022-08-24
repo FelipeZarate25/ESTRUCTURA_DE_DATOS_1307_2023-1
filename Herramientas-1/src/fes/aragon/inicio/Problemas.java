@@ -14,7 +14,9 @@ public class Problemas {
 	public static void main(String[] args) throws IndiceFueraDeRango {
 
 		Arreglos<Integer> numeros = new Arreglos<>(10);
-		Random rd = new Random();
+		//Random rd = new Random();
+		int max = 99;
+		int min = 0;
 		int aux = 0;
 
 		/**
@@ -27,7 +29,7 @@ public class Problemas {
 		 * Insertar(asignar) los valores Random al arreglo
 		 */
 		for (int i = 0; i < numeros.longitud(); i++) {
-			numeros.asignar(i, (int) (Math.random() * 99));
+			numeros.asignar(i, (int) (Math.random() * (max - min + 1) + min));
 		}
 
 		/**
@@ -38,6 +40,7 @@ public class Problemas {
 				if (numeros.recupera(j) > aux) {
 					aux = numeros.recupera(j);
 				}
+				
 			}
 			/* Imprimir los valores del arreglo */
 			numeros.imprime();
@@ -55,6 +58,27 @@ public class Problemas {
 		/* Para imprimir el números más grande (aux) */
 		System.out.print("El número menor es: " + aux);
 
+		
+		  /* Ordenar los valores de forma ascendente
+		     */
+		     for (int k = min; k < numeros.longitud(); k++) {
+		          aux = numeros.recupera(k);
+
+		        //Para el ordenamiento(ascendente)
+		          for (int i = k + 1; i < numeros.longitud(); i++) {
+		            if (aux > numeros.recupera(i)) {
+		              aux = numeros.recupera(i);
+		              min = i;
+		            }
+		          }
+
+		        //Para asignar el número más grande a la posición E
+		          numeros.asignar(min, numeros.recupera(k));
+		          numeros.asignar(k, aux);
+		    }
+		    System.out.print("\nOrdenado: ");
+		    numeros.imprime();
+		
 	}
 
 }
