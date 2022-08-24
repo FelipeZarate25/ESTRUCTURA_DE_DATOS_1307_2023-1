@@ -7,156 +7,179 @@ import fes.aragon.excep.IndiceFueraDeRango;
 * @author mash
 *
 */
-
+/*<E> Arreglo genérico*/
 public class Arreglos<E> {
 
 	private int indice = 0;
-	private final Object[] l;
+	private final Object[] l;   /*<private final> Constante*/
+
 	public Arreglos(int numeroElementos) {
-	this.l=new Object[numeroElementos];
+		this.l = new Object[numeroElementos];
+		/*this hace referencia al atributo l*/
 	}
+
 	/**
-	* Método que inserta un valor de tipo Integer consecutivo
-	*
-	* @param x es el parámetro que se recibe para agregar a la lista
-	* @throws IndiceFueraDeRango exepción que pasa cuando nos salimos fuera del
-	* índice
-	*/
+	 * Método que inserta un valor de tipo Integer consecutivo
+	 *
+	 * @param x es el parámetro que se recibe para agregar a la lista
+	 * @throws IndiceFueraDeRango exepción que pasa cuando nos salimos fuera del
+	 *                            índice
+	 */
+	/*Esta inserta un elemento E en el arreglo l*/
 	public void insertar(E x) throws IndiceFueraDeRango {
-	if (indice < l.length) {
-	l[indice] = x;
-	indice++;
-	} else {
-	throw new IndiceFueraDeRango("Indice fuera de rango");
+		if (indice < l.length) {
+			l[indice] = x;
+			indice++;
+		} else {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		}
 	}
-	}
+
 	/**
-	* Método que localiza un valor en la lista, retornan el indice
-	* 
-	* @param x valor Integer que se busca en la lista
-	* @return se retorna -1 si no esta el valor de la lista, en caso contrario se
-	* retorna el indice
-	*/
+	 * Método que localiza un valor en la lista, retornan el indice
+	 * 
+	 * @param x valor Integer que se busca en la lista
+	 * @return se retorna -1 si no esta el valor de la lista, en caso contrario se
+	 *         retorna el indice
+	 */
+	/*Devuelve la posición del elemento E en el arreglo l*/
 	public Integer localiza(E x) {
-	for (int i = 0; i < l.length; i++) {
-	if (l[i].equals(x)) {
-	return i;
+		for (int i = 0; i < l.length; i++) {
+			if (l[i].equals(x)) {
+				return i;
+			}
+		}
+		return -1;
 	}
-	}
-	return -1;
-	}
+
 	/**
-	* Método que recupera un elemento en el indice indicado
-	* 
-	* @param p entero que indica el indice del elemento a devolver
-	* @return E que se retorna, tomando la posición siguiente que se
-	* da como parametro
-	* @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
-	* fuera de los rangos del arreglo
-	*/
+	 * Método que recupera un elemento en el indice indicado
+	 * 
+	 * @param p entero que indica el indice del elemento a devolver
+	 * @return E que se retorna, tomando la posición siguiente que se da como
+	 *         parametro
+	 * @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
+	 *                            fuera de los rangos del arreglo
+	 */
+	/* Devuelve el elemento E de la posición p en el arreglo l*/
 	public E recupera(int p) throws IndiceFueraDeRango {
-	if (p > l.length || p < 0) {
-	throw new IndiceFueraDeRango("Indice fuera de rango");
-	} else {
-	@SuppressWarnings("unchecked")
-	final E e=(E)l[p];
-	return e;
+		if (p > l.length || p < 0) {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		} else {
+			@SuppressWarnings("unchecked")
+			final E e = (E) l[p];
+			return e;
+		}
 	}
-	}
+
 	/**
-	* Método que alimina un elemento en el indice indicado
-	* 
-	* @param p entero que indica el indice del elemento a eliminar
-	* @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
-	* fuera de los rangos del arreglo
-	*/
+	 * Método que alimina un elemento en el indice indicado
+	 * 
+	 * @param p entero que indica el indice del elemento a eliminar
+	 * @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
+	 *                            fuera de los rangos del arreglo
+	 */
+	/*Elimina el elemento E de la posición p en el arreglo l*/
 	public void suprime(int p) throws IndiceFueraDeRango {
-	if (p > l.length || p < 0) {
-	throw new IndiceFueraDeRango("Indice fuera de rango");
-	} else {
-	l[p] = null;
+		if (p > l.length || p < 0) {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		} else {
+			l[p] = null;
+		}
 	}
-	}
+
 	/**
-	* Método que da el elemento siguiente de la posición que nos indica
-	* 
-	* @param p entero que indica el indice del elemento a devolver
-	* @return E que se retorna, tomando la posición siguiente que se
-	* da como parametro
-	* @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
-	* fuera de los rangos del arreglo
-	*/
+	 * Método que da el elemento siguiente de la posición que nos indica
+	 * 
+	 * @param p entero que indica el indice del elemento a devolver
+	 * @return E que se retorna, tomando la posición siguiente que se da como
+	 *         parametro
+	 * @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
+	 *                            fuera de los rangos del arreglo
+	 */
+	/*Devuelve el valor siguiente de la posición p en el arreglo l*/
 	public E siguiente(int p) throws IndiceFueraDeRango {
-	if (p == l.length || p < -1) {
-	throw new IndiceFueraDeRango("Indice fuera de rango");
+		if (p == l.length || p < -1) {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		}
+		@SuppressWarnings("unchecked")
+		final E e = (E) l[p + 1];
+		return e;
 	}
-	@SuppressWarnings("unchecked")
-	final E e=(E)l[p + 1];
-	return e;
-	}
+
 	/**
-	* Método que da el elemento anterior de la posición que nos indica
-	* 
-	* @param p entero que indica el indice del elemento a devolver
-	* @return Integer que se retorna Integer tomando la posición anterior que se da
-	* como parametro
-	* @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
-	* fuera de los rangos del arreglo
-	*/
+	 * Método que da el elemento anterior de la posición que nos indica
+	 * 
+	 * @param p entero que indica el indice del elemento a devolver
+	 * @return Integer que se retorna Integer tomando la posición anterior que se da
+	 *         como parametro
+	 * @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
+	 *                            fuera de los rangos del arreglo
+	 */
 	public E anterior(int p) throws IndiceFueraDeRango {
-	if (p == l.length - 1 || p < -1) {
-	throw new IndiceFueraDeRango("Indice fuera de rango");
+		if (p == l.length - 1 || p < -1) {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		}
+		@SuppressWarnings("unchecked")
+		final E e = (E) l[p - 1];
+		return e;
 	}
-	@SuppressWarnings("unchecked")
-	final E e=(E)l[p - 1];
-	return e;
-	}
+
 	/**
-	* Méotodo que limpia el arreglo de Enteros
-	* 
-	*/
+	 * Méotodo que limpia el arreglo de Enteros
+	 * 
+	 */
 	public void limpiar() {
-	for (int i = 0; i < l.length; i++) {
-	l[i] = null;
+		for (int i = 0; i < l.length; i++) {
+			l[i] = null;
+		}
 	}
-	}
+
 	/**
-	* Método que regresa el primer elemento del arreglo, si no existe regresa un
-	* null
-	* @return retorna E o null del primer elemento del arreglo
-	*/
+	 * Método que regresa el primer elemento del arreglo, si no existe regresa un
+	 * null
+	 * 
+	 * @return retorna E o null del primer elemento del arreglo
+	 */
 	public E primero() {
-	@SuppressWarnings("unchecked")
-	final E e=(E)l[0];
-	return e;
+		@SuppressWarnings("unchecked")
+		final E e = (E) l[0];
+		return e;
 	}
+
 	/**
-	* Método que devuelve la longitud del arreglo
-	* @return un entero que es la longitud del arreglo
-	*/
+	 * Método que devuelve la longitud del arreglo
+	 * 
+	 * @return un entero que es la longitud del arreglo
+	 */
 	public Integer longitud() {
-	return l.length;
+		return l.length;
 	}
+
 	/**
-	* Método que imprime todos los valores del arreglo
-	*/
+	 * Método que imprime todos los valores del arreglo
+	 */
 	public void imprime() {
-	for (int i = 0; i < l.length; i++) {
-	System.out.print(l[i]+" ");
+		for (int i = 0; i < l.length; i++) {
+			System.out.print(l[i] + " ");
+		}
+		System.out.println();
 	}
-	System.out.println();
-	}
+
 	/**
-	* Método que asignara un valor en la posición indicada
-	* @param p entero que indica la posición donde se inserta el valor en el arreglo
-	* @param x valor que se insertara en la posicion que se indica en p
-	* @throws IndiceFueraDeRango exepción que sucede cuando no estamos en el rango del arreglo
-	*/
-	public void asignar(int p,E x) throws IndiceFueraDeRango {
-	if (p > l.length || p < 0) {
-	throw new IndiceFueraDeRango("Indice fuera de rango");
-	} else {
-	l[p]=x;
-	}
+	 * Método que asignara un valor en la posición indicada
+	 * 
+	 * @param p entero que indica la posición donde se inserta el valor en el
+	 *          arreglo
+	 * @param x valor que se insertara en la posicion que se indica en p
+	 * @throws IndiceFueraDeRango exepción que sucede cuando no estamos en el rango
+	 *                            del arreglo
+	 */
+	public void asignar(int p, E x) throws IndiceFueraDeRango {
+		if (p > l.length || p < 0) {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		} else {
+			l[p] = x;
+		}
 	}
 }
