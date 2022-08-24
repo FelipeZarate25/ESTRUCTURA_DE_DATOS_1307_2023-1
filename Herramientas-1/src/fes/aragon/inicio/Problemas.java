@@ -15,33 +15,35 @@ public class Problemas {
 
 		Arreglos<Integer> numeros = new Arreglos<>(10);
 		Random rd = new Random();
-		int limInfe = 0, limSupe = 99;
 		int aux = 0;
-		
+
+		/**
+		 * Inicializar el arreglo
+		 */
+		for (int i = 0; i < numeros.longitud(); i++) {
+			numeros.asignar(i, 0);
+		}
 		/**
 		 * Insertar(asignar) los valores Random al arreglo
 		 */
 		for (int i = 0; i < numeros.longitud(); i++) {
-			numeros.insertar(rd.nextInt(limSupe + 1));
-			/*Para guardar en el aux y después compararlos*/
-			aux = numeros.recupera(0);
+			numeros.asignar(i, (int) (Math.random() * 99));
 		}
 
 		/**
 		 * Comparar los números del arreglo <<Buscamos el número mayor>>
 		 */
-		for (int i = 1; i < numeros.longitud(); i++) {
-			if (aux < numeros.recupera(i)) {
-				aux = numeros.recupera(i);
+		for (int i = 0; i < numeros.longitud(); i++) {
+			for (int j = 0; j < numeros.longitud(); j++) {
+				if (numeros.recupera(j) > aux) {
+					aux = numeros.recupera(j);
+				}
 			}
 			/* Imprimir los valores del arreglo */
 			numeros.imprime();
-
 		}
-		/* Para imprimir el números mas grande (aux)*/
-		System.out.print("\nNúmero mayor: " + aux);
+		System.out.println("El número mayor es: " + aux);
 
-		
 		/**
 		 * Comparar los números del arreglo <<Buscamos el número menor>>
 		 */
@@ -50,30 +52,9 @@ public class Problemas {
 				aux = numeros.recupera(i);
 			}
 		}
-		/* Para imprimir el números más grande (aux)*/
-		System.out.print("\nNúmero menor: " + aux);
-		
-		/**
-		 * Ordenar los valores de forma ascendente
-		 */
-		 for (int k = limInfe; k < numeros.longitud(); k++) {
-		      aux = numeros.recupera(k);
+		/* Para imprimir el números más grande (aux) */
+		System.out.print("El número menor es: " + aux);
 
-		    //Para el ordenamiento(ascendente)
-		      for (int i = k + 1; i < numeros.longitud(); i++) {
-		        if (aux > numeros.recupera(i)) {
-		          aux = numeros.recupera(i);
-		          limInfe = i;
-		        }
-		      }
-
-		    //Para asignar el número más grande a la posición E
-		      numeros.asignar(limInfe, numeros.recupera(k));
-		      numeros.asignar(k, aux);
-		}
-		System.out.print("\nOrdenado: ");
-		numeros.imprime();
-      
 	}
 
 }
