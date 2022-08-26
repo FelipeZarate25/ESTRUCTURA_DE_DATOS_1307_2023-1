@@ -126,7 +126,7 @@ public class Arreglos<E> {
 	}
 
 	/**
-	 * Méotodo que limpia el arreglo de Enteros
+	 * Método que limpia el arreglo de Enteros
 	 * 
 	 */
 	public void limpiar() {
