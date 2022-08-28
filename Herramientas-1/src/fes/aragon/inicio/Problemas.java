@@ -17,7 +17,7 @@ import fes.aragon.utilerias.estaticas.Arreglos;
 
 public class Problemas {
 
-	public static void main(String[] args) throws IndiceFueraDeRango {
+	public static void main(String[] args) {
 
 		/*computadora compu = new computadora("Apple", "MacBook",
 				new Monitor("Toshiba", "4820-5LG", 32),
@@ -41,19 +41,45 @@ public class Problemas {
 		 * Insertar(asignar) los valores Random al arreglo
 		 */
 		for (int i = 0; i < numeros.longitud(); i++) {
-			numeros.asignar(i, (int)(Math.random()*(max-min+1)+min));
-			
+			try {
+				numeros.asignar(i, (int)(Math.random()*(max-min+1)+min));
+			} catch (IndiceFueraDeRango e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	
-		Integer aux = numeros.recupera(0);
+		/*Integer aux = numeros.recupera(0);
 		for (int i = 1; i < numeros.longitud(); i++) {
 			if(numeros.recupera(i)>aux);
 			aux=numeros.recupera(i);
 			
 		}
+		*/
 		
-		numeros.imprime();
-		System.out.println(aux);
+		Integer temp = null;
+		Integer aux = 0;
+		
+		try {
+			
+		
+			while (true) {
+				
+				temp = numeros.siguiente();
+				//aux = temp;
+				if (temp > aux) {
+					aux = temp;
+				}
+				
+				//temp = numeros.siguiente();
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			numeros.imprime();
+			System.out.println(aux);
+			System.out.println(e.getMessage());
+		}
 
 	}
 }

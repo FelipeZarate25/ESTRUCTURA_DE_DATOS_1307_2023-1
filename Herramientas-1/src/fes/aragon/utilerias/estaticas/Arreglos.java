@@ -11,8 +11,8 @@ import fes.aragon.excep.IndiceFueraDeRango;
 public class Arreglos<E> {
 
 	private int indice = 0;
+	private int indiceSiguiente = -1;
 	private final Object[] l;   /*<private final> Constante*/
-
 	public Arreglos(int numeroElementos) {
 		this.l = new Object[numeroElementos];
 		/*this hace referencia al atributo l*/
@@ -106,6 +106,18 @@ public class Arreglos<E> {
 		final E e = (E) l[p + 1];
 		return e;
 	}
+	
+	public E siguiente() throws IndiceFueraDeRango {
+		this.indiceSiguiente += 1;
+		if (this.indiceSiguiente == l.length ) {
+			throw new IndiceFueraDeRango("Ya no hay elementos");
+		}
+		@SuppressWarnings("unchecked")
+		final E e = (E) l[this.indiceSiguiente];
+		return e;
+	}
+	
+	
 
 	/**
 	 * Método que da el elemento anterior de la posición que nos indica
