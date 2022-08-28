@@ -1,5 +1,8 @@
 package fes.aragon.utilerias.estaticas;
 
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.Iterator;
+
 import fes.aragon.excep.IndiceFueraDeRango;
 /**
 * Clase que tiene funciones para ocupar arreglos de tipo Integer
@@ -55,7 +58,7 @@ public class Arreglos<E> {
 	/**
 	 * Método que recupera un elemento en el indice indicado
 	 * 
-	 * @param p entero que indica el indice del elemento a devolver
+	 * @param promedio entero que indica el indice del elemento a devolver
 	 * @return E que se retorna, tomando la posición siguiente que se da como
 	 *         parametro
 	 * @throws IndiceFueraDeRango excepción que se arroja cuando el indice p esta
@@ -118,7 +121,6 @@ public class Arreglos<E> {
 	}
 	
 	
-
 	/**
 	 * Método que da el elemento anterior de la posición que nos indica
 	 * 
@@ -195,7 +197,79 @@ public class Arreglos<E> {
 		}
 	}
 	
+
+	/**
+	 * Método pr sacar el promedio
+	 * @return
+	 */
+     public int promediar() {
+		
+	    int total = 0;
+        int res = 0;
+		for (int i = 0; i < l.length; i++) {
+			total += (int) l[i];
+			
+		}
+		res = total/l.length;
+		return res;
+		
+	}
 	
-	//public void promedio 
+	 
+     /**
+      * Método para calcular el promedio
+      * @param a
+      * @param b
+      * @throws IndiceFueraDeRango
+      */
+	public void intervalo(int a, int b) throws IndiceFueraDeRango {
+		if (a < 0 || b >= l.length || a > b || a == b) {
+			throw new IndiceFueraDeRango("Indice fuera de rango");
+		}
+
+		for (int i = a; i < b; i++) {
+			System.out.print(l[i] + " ");
+		}
+
+		System.out.println();
+	}
+
+	/**
+	 * Método para calcular el máximo del intervalo
+	 * @return
+	 */
+	public Integer max() {
+		Integer tmp=null;
+		Integer aux= 0;
+		for (int i = 0; i < l.length; i++) {
+			tmp=(Integer) l[i];
+			if (tmp>aux) {
+				aux=tmp;
+				
+			}
+		}
+		return aux;
+		
+	}
 	
+	
+	/**
+	 * Método para calcular el mínimo del intervalo
+	 * 
+	 * @return
+	 */
+	public Integer min() {
+		Integer tmp = null;
+		Integer aux = 99;
+		for (int i = 0; i < l.length; i++) {
+			tmp = (Integer) l[i];
+			if (tmp < aux) {
+				aux = tmp;
+
+			}
+		}
+		return aux;
+
+	}
+
 }
