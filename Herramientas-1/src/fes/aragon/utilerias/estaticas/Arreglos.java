@@ -63,7 +63,7 @@ public class Arreglos<E> {
 	 */
 	/* Devuelve el elemento E de la posición p en el arreglo l*/
 	public E recupera(int p) throws IndiceFueraDeRango {
-		if (p > l.length || p < 0) {
+		if (p >= l.length || p < 0) {
 			throw new IndiceFueraDeRango("Indice fuera de rango");
 		} else {
 			@SuppressWarnings("unchecked")
@@ -81,7 +81,7 @@ public class Arreglos<E> {
 	 */
 	/*Elimina el elemento E de la posición p en el arreglo l*/
 	public void suprime(int p) throws IndiceFueraDeRango {
-		if (p > l.length || p < 0) {
+		if (p >= l.length || p <= 0) {
 			throw new IndiceFueraDeRango("Indice fuera de rango");
 		} else {
 			l[p] = null;
@@ -99,7 +99,7 @@ public class Arreglos<E> {
 	 */
 	/*Devuelve el valor siguiente de la posición p en el arreglo l*/
 	public E siguiente(int p) throws IndiceFueraDeRango {
-		if (p == l.length || p < -1) {
+		if (p >= l.length || p <= -1) {
 			throw new IndiceFueraDeRango("Indice fuera de rango");
 		}
 		@SuppressWarnings("unchecked")
@@ -117,7 +117,7 @@ public class Arreglos<E> {
 	 *                            fuera de los rangos del arreglo
 	 */
 	public E anterior(int p) throws IndiceFueraDeRango {
-		if (p == l.length - 1 || p < -1) {
+		if (p >= l.length || p <= 0) {
 			throw new IndiceFueraDeRango("Indice fuera de rango");
 		}
 		@SuppressWarnings("unchecked")
@@ -182,4 +182,8 @@ public class Arreglos<E> {
 			l[p] = x;
 		}
 	}
+	
+	
+	//public void promedio 
+	
 }
