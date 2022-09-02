@@ -1,8 +1,5 @@
 package fes.aragon.utilerias.estaticas;
 
-import java.lang.reflect.UndeclaredThrowableException;
-import java.util.Iterator;
-
 import fes.aragon.excep.IndiceFueraDeRango;
 /**
 * Clase que tiene funciones para ocupar arreglos de tipo Integer
@@ -175,7 +172,7 @@ public class Arreglos<E> {
 	 */
 	public void imprime() {
 		for (int i = 0; i < l.length; i++) {
-			System.out.print(l[i] + " ");
+			System.out.print(l[i] + "\n");
 		}
 		System.out.println();
 	}
@@ -200,20 +197,86 @@ public class Arreglos<E> {
 
 	/**
 	 * Método pr sacar el promedio
+	 * NOTA: int por double para sacar el promedio con decimales.
 	 * @return
 	 */
-     public int promediar() {
-		
-	    int total = 0;
-        int res = 0;
+	public double promediar() {
+
+		double total = 0;
+		double res = 0;
 		for (int i = 0; i < l.length; i++) {
 			total += (int) l[i];
-			
+
 		}
-		res = total/l.length;
+		res = total / l.length;
 		return res;
-		
+
 	}
+	
+	/**
+	 * Método para obtener la mediana
+	 * @return
+	 */
+	public Object mediana() {
+		return l[(l.length / 2)];
+	}
+
+
+     /**
+ 	 * Método para calcular el máximo del intervalo
+ 	 * @return
+ 	 */
+		public Integer max() {
+			Integer tmp = null;
+			Integer aux = 0;
+			for (int i = 0; i < l.length; i++) {
+				tmp = (Integer) l[i];
+				if (tmp > aux) {
+					aux = tmp;
+
+				}
+			}
+			return aux;
+
+		}
+ 	
+ 	/**
+	 * Método para imprimir el valor del segundo mayor
+	 * @return
+	 */
+	public Integer segundoMax() {
+		Integer tmp = null;
+		Integer aux = 0;
+		Integer aux2 = 0;
+		for (int i = 0; i < l.length; i++) {
+			tmp = (Integer) l[i];
+			if (tmp > aux) {
+				aux2 = aux;
+				aux = tmp;
+			}
+		}
+		return aux2;
+	}
+ 	
+ 	
+ 	/**
+ 	 * Método para calcular el mínimo del intervalo
+ 	 * 
+ 	 * @return
+ 	 */
+ 	public Integer min() {
+ 		Integer tmp = null;
+ 		Integer aux = 99;
+ 		for (int i = 0; i < l.length; i++) {
+ 			tmp = (Integer) l[i];
+ 			if (tmp < aux) {
+ 				aux = tmp;
+
+ 			}
+ 		}
+ 		return aux;
+
+ 	}
 	
 	 
      /**
@@ -222,54 +285,27 @@ public class Arreglos<E> {
       * @param b
       * @throws IndiceFueraDeRango
       */
-	public void intervalo(int a, int b) throws IndiceFueraDeRango {
-		if (a < 0 || b >= l.length || a > b || a == b) {
-			throw new IndiceFueraDeRango("Indice fuera de rango");
-		}
+		public void intervalo(int a, int b) throws IndiceFueraDeRango {
+			if (a > b) {
+				int aux;  //Aquí es el intercambio sí nos dan los valores al revés.
+				aux = b;
+				b = a;
+				a = aux;
+			}
 
-		for (int i = a; i < b; i++) {
-			System.out.print(l[i] + " ");
-		}
+			if (a <= 0 || b >= l.length || a > b || a == b) {
+				throw new IndiceFueraDeRango("Indice fuera de rango");
+			} else {
 
-		System.out.println();
-	}
+				// for (int i = a -1; i < b; i++) { NOTA: No programar lo que no se te pide.
+				for (int i = a; i < b; i++) {
+					System.out.print(l[i] + " ");
+				}
 
-	/**
-	 * Método para calcular el máximo del intervalo
-	 * @return
-	 */
-	public Integer max() {
-		Integer tmp=null;
-		Integer aux= 0;
-		for (int i = 0; i < l.length; i++) {
-			tmp=(Integer) l[i];
-			if (tmp>aux) {
-				aux=tmp;
-				
+				System.out.println();
 			}
 		}
-		return aux;
-		
-	}
-	
-	
-	/**
-	 * Método para calcular el mínimo del intervalo
-	 * 
-	 * @return
-	 */
-	public Integer min() {
-		Integer tmp = null;
-		Integer aux = 99;
-		for (int i = 0; i < l.length; i++) {
-			tmp = (Integer) l[i];
-			if (tmp < aux) {
-				aux = tmp;
 
-			}
-		}
-		return aux;
-
-	}
+	
 
 }
