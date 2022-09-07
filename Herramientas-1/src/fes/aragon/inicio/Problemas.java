@@ -25,8 +25,9 @@ public class Problemas {
 		/***********************************************************************************/
 
 		Arreglos<Auxiliar> numeros = new Arreglos<>(1000);
-		Arreglos<Integer> numeros2 = new Arreglos<>(1000);
-		int max = 99, min = 0, aux = 0;
+		Arreglos<Integer> numeros2 = new Arreglos<>(10);
+		int max = 99, min = 0;
+		int aux = 0;
 
 		try {
 			
@@ -38,9 +39,12 @@ public class Problemas {
 					if (rd == numeros.recupera(j).getNumero()) {
 						aux += 1;
 						numeros.recupera(j).setContador(aux);
+						//if (numeros == null) break;
+						//return;
 					} else {
 						numeros.asignar(i, new Auxiliar(rd));
 					}
+					
 				}
 			}
 
