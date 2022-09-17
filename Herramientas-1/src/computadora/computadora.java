@@ -90,6 +90,10 @@ public class computadora {
     public String toString() {
         return "Computadora{" + "Marca = " + marca + ", Modelo = " + modelo + ", Bocina = " + bocina + ", Pantalla = " + pantalla + ", Raton = " + raton + ", Tarjeta Gráfica = " + tarjetaGrafica + ", Teclado = " + teclado + '}';
     }
-    
+
+	public void setMonitor(Monitor mn) {
+		// TODO Auto-generated method stub
+
+	}   
 
 }

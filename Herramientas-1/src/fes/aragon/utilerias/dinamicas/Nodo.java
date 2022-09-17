@@ -1,6 +1,7 @@
 package fes.aragon.utilerias.dinamicas;
 
-public class Nodo <E> {
+
+public class Nodo<E> {
 	private E dato;
 	private Nodo<E> siguiente;
 	public Nodo(E dato) {
@@ -23,5 +24,4 @@ public class Nodo <E> {
 	public void setSiguiente(Nodo<E> siguiente) {
 		this.siguiente = siguiente;
 	}
-
 }
