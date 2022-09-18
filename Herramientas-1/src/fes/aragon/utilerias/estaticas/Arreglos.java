@@ -1,6 +1,7 @@
 package fes.aragon.utilerias.estaticas;
 
 import fes.aragon.excep.IndiceFueraDeRango;
+
 /**
 * Clase que tiene funciones para ocupar arreglos de tipo Integer
 * 

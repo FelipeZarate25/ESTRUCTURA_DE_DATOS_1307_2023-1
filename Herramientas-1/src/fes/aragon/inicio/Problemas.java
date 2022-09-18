@@ -13,17 +13,6 @@ public class Problemas {
 
 	public static void main(String[] args) throws IndiceFueraDeRango {
 
-		/*
-		 * computadora compu = new computadora("Apple", "MacBook", new
-		 * Monitor("Toshiba", "4820-5LG", 32), new Teclado("Dell", "Negro", 104), new
-		 * Mouse("MOFII", "Amarillo", "Inálambrico"), new TarjetaGrafica("NVIDIA", 1050,
-		 * "4 GB", "1250MHz"), new Bocina("Sony", "SRS-XB13/BC LA", 20000));
-		 * 
-		 * System.out.println(compu + "\n");
-		 */
-
-		/***********************************************************************************/
-
 		Arreglos<Auxiliar> numeros = new Arreglos<>(1000);
 		Arreglos<Integer> numeros2 = new Arreglos<>(10);
 		int max = 99, min = 0;

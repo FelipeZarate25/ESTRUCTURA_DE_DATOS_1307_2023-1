@@ -25,5 +25,9 @@ public class Auxiliar {
 	public String toString() {
 		return numero + " = " + contador;
 	}
+	
+	public void inConta() {
+		this.contador++;
+	}
 
 }

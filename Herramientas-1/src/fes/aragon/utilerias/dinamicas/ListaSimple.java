@@ -46,7 +46,7 @@ public class ListaSimple<E> {
 			} else {
 				Nodo<E> prd, tmp;
 				for (prd = cabeza, tmp = cabeza.getSiguiente(); tmp != null
-						&& !tmp.getSiguiente().equals(dato); prd = prd.getSiguiente(), tmp = tmp.getSiguiente())
+						&& !tmp.getDato().equals(dato); prd = prd.getSiguiente(), tmp = tmp.getSiguiente())
 					;
 				if (tmp != null) {
 					borrado = true;
@@ -91,12 +91,12 @@ public class ListaSimple<E> {
 				cabeza = cola = null;
 				longitud--;
 			} else {
-				Nodo<E> aux = cabeza;
-				while (aux.getSiguiente() != cola) {
-					aux = aux.getSiguiente();
-				}
-				cola = aux;
-				aux.setSiguiente(null);
+				Nodo<E> tmp;
+				for (tmp = cabeza; tmp.getSiguiente() != cola; tmp=tmp.getSiguiente())
+					;
+				tmp.setSiguiente(null);
+				cola = tmp;
+				longitud--;
 			}
 		}
 	}
@@ -195,12 +195,12 @@ public class ListaSimple<E> {
 		}
 	}
 
-	public void asignar(E dato, E nuevDato, boolean todos) {
+	public void asignar(E dato, E nuevoDato, boolean todos) {
 		Nodo<E> tmp = null;
 		if (!todos) {
 			for (tmp = cabeza; tmp != null; tmp = tmp.getSiguiente()) {
 				if (tmp.getDato().equals(dato)) {
-					tmp.setDato(nuevDato);
+					tmp.setDato(nuevoDato);
 					return;
 				}
 			}
@@ -208,7 +208,7 @@ public class ListaSimple<E> {
 		} else {
 			for (tmp = cabeza; tmp != null; tmp = tmp.getSiguiente()) {
 				if (tmp.getSiguiente().equals(dato)) {
-					tmp.setDato(nuevDato);
+					tmp.setDato(nuevoDato);
 					return;
 				}
 			}
